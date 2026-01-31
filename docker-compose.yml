@@ -1,9 +1,12 @@
 services:
   cobblemon:
-    image: delath/cobblemon
+    build: .
     container_name: cobblemon
     ports:
       - "25565:25565/tcp"
     volumes:
       - ./world:/home/cobblemon/world
     restart: 'unless-stopped'
+    environment:
+      - ALLOCATED_RAM=8G
+      - EULA=TRUE
